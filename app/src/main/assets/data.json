@@ -1,0 +1,72 @@
+{
+  "idForm":"A1",
+  "count":"3",
+  "steps": [
+    {
+      "title":"Step1",
+      "step":"1",
+      "fields": [
+        {
+          "key":"name",
+          "type":"edit_text",
+          "hint":"Enter Your Name",
+          "step": "1"
+        },
+        {
+          "key":"email",
+          "type":"edit_text",
+          "hint":"Enter Your Email",
+          "step": "1"
+        },
+        {
+          "key":"wena",
+          "type":"edit_text",
+          "hint":"Hola Peet",
+          "step": "1"
+        }
+      ]
+    },
+    {
+      "title":"Step2",
+      "step":"2",
+      "fields": [
+        {
+          "key":"name",
+          "type":"edit_text",
+          "hint":"Enter Country",
+          "step": "2"
+        },
+        {
+          "key":"labelBackgroundImage",
+          "type":"label",
+          "text":"Choose Background Image",
+          "step": "2"
+        }
+      ]
+    },
+    {
+      "title":"Step3",
+      "step":"3",
+      "fields": [
+        {
+          "key":"name",
+          "type":"spinner",
+          "hint":"Enter Country",
+          "step": "3"
+        },
+        {
+          "key":"labelBackgroundImage",
+          "type":"check_box",
+          "text":"Choose Background Image",
+          "step": "3"
+        },
+        {
+          "key":"labelBackgroundImage",
+          "type":"radio",
+          "text":"Choose Background Image",
+          "step": "3"
+        }
+      ]
+    }
+  ]
+}
