@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,7 @@ import com.example.innovacion.form_task_pro.entities.Fields;
 import com.example.innovacion.form_task_pro.entities.Form;
 import com.example.innovacion.form_task_pro.entities.Steps;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import utils.CommonUtils;
@@ -26,19 +25,19 @@ import utils.CommonUtils;
  * Created by innovacion on 26-10-2016.
  */
 
-public class FieldsPagerAdapter extends Fragment {
+public class FieldsPagerFragment extends Fragment {
 
     private String title;
     private int page;
     private int step;
     private RecyclerView recycler;
-    private RecyclerView.Adapter adapter;
+    private FieldsAdapter adapter;
     private RecyclerView.LayoutManager lManager;
     Button btn;
 
 
     public static Fragment newInstance(int page, String title) {
-        FieldsPagerAdapter fragmentFirst = new FieldsPagerAdapter();
+        FieldsPagerFragment fragmentFirst = new FieldsPagerFragment();
         Bundle args = new Bundle();
 
         args.putInt("someInt", page);
@@ -108,6 +107,12 @@ public class FieldsPagerAdapter extends Fragment {
 
         //crear un nuevo adaptador
         adapter = new FieldsAdapter(field,getContext());//le paso al adaptador la lista de datos y la posicion correspondiente al elemento
+        adapter.setOnTextChangeListener(new FieldsAdapter.TextChangeListener() {
+            @Override
+            public void onTextChange() {
+                Log.d("OnTextChange", "action");
+            }
+        });
         recycler.setAdapter(adapter);
 
 

@@ -39,6 +39,8 @@ public class FieldsAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
     protected String[] mDataset;
 
 
+    //
+    private static FieldsAdapter.TextChangeListener textChangeListener;
 
     private Context context;
     private static final String TAG = "adapter";
@@ -53,7 +55,13 @@ public class FieldsAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     }
 
+    public void setOnTextChangeListener(TextChangeListener textChangeListener){
+        FieldsAdapter.textChangeListener = textChangeListener;
+    }
 
+    public interface TextChangeListener {
+        void onTextChange();
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -266,6 +274,22 @@ public class FieldsAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder
         public ViewHolderTxt(View v) {
             super(v);
             edit_txt = (TextView) v.findViewById(R.id.id_editText);
+            edit_txt.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    textChangeListener.onTextChange();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
         }
 
         public TextView getEdit_txt() {

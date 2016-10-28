@@ -9,11 +9,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 
 import com.example.innovacion.form_task_pro.entities.Form;
-import com.example.innovacion.form_task_pro.fragment.FieldsPagerAdapter;
+import com.example.innovacion.form_task_pro.fragment.FieldsPagerFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i < count; i++)
         {
             int page = i+1;
-            adapter.addFragment(FieldsPagerAdapter.newInstance(page, null), "nº"+page, page);
+            adapter.addFragment(FieldsPagerFragment.newInstance(page, null), "nº"+page, page);
 
         }
         viewPager.setAdapter(adapter);
